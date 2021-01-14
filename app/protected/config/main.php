@@ -20,14 +20,14 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'Enter Your Password Here',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		*/
+		
 	),
 
 	// application components
@@ -51,7 +51,15 @@ return array(
 		*/
 
 		// database settings are configured in database.php
-		'db'=>require(dirname(__FILE__).'/database.php'),
+		/* 'db'=>require(dirname(__FILE__).'/database.php'), */
+		'db' => array (
+			'class' => 'CDbConnection',
+			'connectionString' => 'mysql:host=localhost;dbname=apitest',
+			'username' => 'root',
+			'password' => '',
+			'charset' => 'utf8',
+			'initSQLs'=>array("set lc_time_names='es_MX';"),
+		),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
